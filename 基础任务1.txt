@@ -1,0 +1,62 @@
+"""
+@author:96978
+@file:demo12.py
+@time:2021/10/08
+"""
+# 华氏温度转换为摄氏温度
+# F=float(input('请输入华氏温度'))
+# C=(F-32)/1.8
+# print(round(C,1),'℃')
+
+#圆的周长和面积
+# r=int(input('请输入圆的半径'))
+# c=2*3.14*r
+# s=3.14*r*r
+# print('圆的周长为',round(c,2))
+# print('圆的面积为',round(s,2))
+
+# 输入年份判断是不是闰年
+# year=int(input('请输入年份'))
+# if (year%4==0 and year%100!=0) or (year%400==0):
+# 	print(year,'是闰年')
+# else:
+# 	print(year,'不是闰年')
+
+# 英制单位英寸与公制单位厘米互换
+# lenth=float(input('请输入长度'))
+# unit=input('请输入单位。mil/cm')
+# if unit=='mil':
+# 	print(round(lenth*2.54,2),'cm')
+# elif unit=='cm':
+# 	print(round(lenth/2.54,2),'mil')
+# else:
+# 	print('别瞎输')
+
+# 百分制成绩转换为等级制成绩
+# fen=int(input('请输入你的分数'))
+# if fen>=90 and fen<=100:
+# 	print('A')
+# elif fen<90 and fen>=80:
+# 	print('B')
+# elif fen<80 and fen>=70:
+# 	print('C')
+# elif fen<70 and fen>=60:
+# 	print('D')
+# elif fen<60:
+# 	print('E')
+# else:
+# 	print('别瞎输')
+
+
+# 输入三条边长，如果能构成三角形就计算周长和面积
+# import math
+# bian1=int(input('请输入边长1'))
+# bian2=int(input('请输入边长2'))
+# bian3=int(input('请输入边长3'))
+# if bian1+bian2>bian3 and bian2+bian3>bian1 and bian1+bian3>bian2:
+# 	c=bian1+bian2+bian3
+# 	print('周长为',c)
+# 	s=math.sqrt((c/2)*(c/2-bian1)*(c/2-bian2)*(c/2-bian3))
+# 	print('面积为',round(s,2))
+# else:
+# 	print('三条边无法构成三角形')
