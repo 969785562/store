@@ -1,0 +1,22 @@
+'''
+随机生成一个处罚遍数
+    选择容器：
+    元组：（1,2,3）#他是不可修改而且是唯一
+    列表：[1,2,3] # 他是可以修改的
+有一个列表里面有人名
+优化代码：一个输入进行判断，判断为1 开始选人，判断为2开始生成数字  判断为q Q，退出
+'''
+import random
+list=["陆梓言","郭洪波","方则属","签","千纸鹤","EXO"]
+print("============欢迎来到处罚系统===============")
+while 1==1:
+    index=input("输入1开始选人，输入2开始生成数字，输入q或Q退出")
+    ran = random.randint(0, len(list) - 1)  # len==6  范围是0-6全部可以取到
+    if index=='1':
+        print(list[ran])
+    elif index=='2':
+        num=random.randint(0,90)
+        print("处罚了",num,"遍")
+    elif index=='q' or index=='Q':
+        break
+
