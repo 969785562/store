@@ -99,6 +99,45 @@
 # 	day+=1
 # print(day)
 
+
+# 继续完成上午的猜数字游戏的需求功能。
+# 1.添加计数打印功能
+# 2.添加次数金币功能和锁定系统功能。
+import random
+import time
+b=int(input('请充值'))
+while b>=3:
+    randit = random.randint(10, 90)  # 从10到90之前随机取一个数字
+    num1 = randit
+    print(num1)
+    for a in range(3):
+        num = int(input("请输入一个数字"))
+        if 10<=num<90:
+            if num1 == num :
+                print("猜对了")
+                b+=2
+                break
+            elif num1>num:
+                print('猜小了')
+            elif num1<num:
+                print('猜大了')
+        else:
+            print('别瞎输')
+        print('已经猜了',a+1,'次','还剩',2-a,'次')
+        b-=1
+    print('还剩下',b,'个金币')
+    while b<3:
+        pd=input('余额不足3个金币，是否续费？y/n')
+        if pd=='y':
+            b+=int(input('请输入充值金额'))
+        else:
+            break
+    for i in range(3):
+        time.sleep(1)
+        print(3-i,'秒后继续')
+print('游戏结束')
+
+
 #用循环来实现20以内的数的阶乘。（1! +2!+3!+…..+20!）
 
 # for i in range(1,21):
