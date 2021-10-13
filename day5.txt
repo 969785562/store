@@ -1,0 +1,96 @@
+'''
+ Frank的商城：
+        1.准备商品
+        2.空的购物车
+        3.钱包初始化金钱
+        4.最后打印购物小条
+    1.业务：
+        看到商品：
+            商品存在
+                看金钱够：
+                    成功加入购物车。
+                    余额减去对应价格。
+                不够：
+                    穷鬼，去买其他商品。
+            商品不存在：
+                输入错误。
+            输入Q或q，退出并结算。打印小条。
+任务：优惠券加上随机获得一张优惠券（9折10，5折3，免费的1：单个商品打折9折10，5折3，免费的1）
+'''
+
+
+def daq():
+    num=random.randint(0,14)
+    if num>=0 and num<10:
+        return 0.9
+    elif num>=10 and num<13:
+        return 0.5
+    else:return 0
+
+
+
+
+
+#准备商品
+import random
+shop=[
+#     0   ,   1
+    ["戴尔",20000],#0
+    ["电磁炉",200],#1
+    ["A4纸",10],#2
+    ["华为P50 4G",5000]#3
+]
+#初始化余额
+money=input("请输入您的余额")
+money=int(money)
+#准备一个购物车
+mycart=[]
+while True:
+#展示商品
+    for index,value in enumerate(shop):
+        print(index,":",value)
+    chose=input("请输入商品编号")#输入的还是str
+    if chose.isdigit():#  判断是否是数字
+        chose=int(chose)
+        if chose >len(shop):
+            print("这里没有您需要的商品")
+        else:
+            #   余额满足的条件
+            sum=0
+            for i in range(len(mycart)):
+                sum+=mycart[i][1]
+            if  money >shop[chose][1]+sum:
+                mycart.append(shop[chose])
+                # money=money-shop[chose][1]
+                print("恭喜你，加入购物车")
+            # 不满足
+            else:print("gun")
+    elif chose=="q" or chose=="Q":
+        # 购物券
+        sum = 0
+        daq=daq()
+        num1=random.randint(0,2)
+        if num1==0:
+            # print(daq)
+            for i in range(len(mycart)):
+                sum += mycart[i][1]
+            sum=float(sum*daq)
+            money=money-sum
+            dz='全部商品'
+        else:
+            mycart[0][1]=mycart[0][1]*daq
+            print(mycart)
+            for i in range(len(mycart)):
+                sum += mycart[i][1]
+            money = money - sum
+            dz=mycart[0][0]
+        #    打印购物小条
+        print("=====================")
+        for index, value in enumerate(mycart):
+            print(index, ":", value,)
+        print('打折商品为',dz)
+        print("您的余额还剩:",money)
+        break
+    else:#不是数字
+        print("输入错误")
+
