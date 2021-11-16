@@ -1,0 +1,67 @@
+"""
+@author:96978
+@file:day1.py
+@time:2021/11/15
+"""
+from selenium import webdriver
+import time
+
+from selenium.webdriver.common.by import By
+def jd():
+	driver=webdriver.Chrome()
+
+	driver.get('http://www.jd.com/')
+
+	driver.maximize_window()
+
+	# driver.find_element_by_xpath("//*[@id='key']").send_keys('apple')
+	driver.find_element(by=By.ID,value='key').send_keys('炒锅')
+	# driver.find_element_by_xpath('/html/body/div[1]/div[4]/div/div[2]/div/div[2]/button').click()
+	driver.find_element(by=By.XPATH,value='/html/body/div[1]/div[4]/div/div[2]/div/div[2]/button').click()
+	time.sleep(1)
+	driver.find_element(by=By.XPATH,value='//*[@id="J_goodsList"]/ul/li[2]/div/div[1]/a/img').click()
+	time.sleep(1)
+	driver.switch_to.window(driver.window_handles[1])
+	driver.find_element(by=By.XPATH,value='/html/body/div[6]/div/div[2]/div[5]/div[18]/a[1]').click()
+	time.sleep(4)
+	driver.quit()
+def sn():
+	driver=webdriver.Chrome()
+	driver.get('http://www.suning.com/')
+	driver.maximize_window()
+	driver.find_element(By.ID,value="searchKeywords").send_keys('冰箱')
+	driver.find_element(By.ID,value='searchSubmit').click()
+	driver.find_element(By.XPATH,value='/html/body/div[10]/div/ul/li[1]/div/div/div[1]/div/a/img').click()
+	time.sleep(2)
+	driver.switch_to.window(driver.window_handles[1])
+	driver.find_element(By.ID,value='addCart').click()
+	time.sleep(1)
+	driver.find_element(By.XPATH,value='/html/body/div[38]/div/div[2]/div/div[1]/a').click()
+	time.sleep(1)
+	driver.find_element(By.XPATH,value='/html/body/div[4]/div[1]/div[3]/div/div/div[2]/div[2]/a').click()
+	time.sleep(4)
+	driver.quit()
+
+def B():
+	driver=webdriver.Chrome()
+	driver.get('https://www.bilibili.com/')
+	driver.maximize_window()
+	time.sleep(2)
+	driver.find_element(By.XPATH,value='/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div/form/input').send_keys('光辉岁月')
+	time.sleep(1)
+	driver.find_element(By.XPATH,value='/html/body/div[2]/div/div[1]/div[1]/div/div[2]/div/form/div/button').click()
+	time.sleep(1)
+	driver.switch_to.window(driver.window_handles[1])
+	driver.find_element(By.XPATH,value='/html/body/div[3]/div/div[2]/div/div[1]/div[2]/ul/li[1]/a/div/div[1]/img').click()
+	time.sleep(2)
+	driver.switch_to.window(driver.window_handles[2])
+	time.sleep(10)
+	driver.find_element(By.XPATH,value='/html/body/div[2]/div[4]/div[1]/div[2]/div/div[1]/div/div[1]/div[2]/div/div[2]/div[1]/input').click()
+	time.sleep(10)
+	driver.find_element(By.XPATH,value='/html/body/div[2]/div[4]/div[1]/div[3]/div[1]/span[1]/i').click()
+	time.sleep(2)
+	driver.quit()
+
+# B()
+sn()
+jd()
